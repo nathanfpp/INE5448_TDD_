@@ -5,10 +5,10 @@ import java.util.HashMap;
 import corp.Ocorrencia.PrioridadeDeOcorrencia;
 import corp.Ocorrencia.TipoDeOcorrencia;
 
-public class Projeto {
+public class Projeto { //Atributos em private por favor
 
 	String nome;
-	int ocorrenciasAbertas;
+	int ocorrenciasAbertas; //Qual o sentido de contabilizar as ocorrencias abertas ? Você contabilza, mas nao verifica o estado da mesma
 	HashMap<Integer,Ocorrencia> ocorrencias;
 	
 	public Projeto(String nomeProjeto) {
@@ -40,7 +40,7 @@ public class Projeto {
 	public void fecharOcorrencia(int idOcorrencia) throws Exception {
 		Ocorrencia ocorrencia = ocorrencias.get(idOcorrencia);
 		if(ocorrencia == null) {
-			throw(new Exception("OcorrÃªncia Inexistente"));
+			throw(new Exception("Ocorrencia Inexistente"));
 		}
 		ocorrencia.fechar();
 		ocorrenciasAbertas--;

@@ -17,7 +17,7 @@ public class TesteEmpresa {
 	}
 
 	@Test
-	public void adicionarProjeto(){
+	public void adicionarProjeto(){ //Crie um método de configuração para o Projeto.
 		String nomeProjeto = "Adicionar";
 		int idProjeto = empresa.adicionarProjeto(nomeProjeto);
 		int quantidadeEsperadaDeProjetos = 1;

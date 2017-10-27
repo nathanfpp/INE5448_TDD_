@@ -37,7 +37,7 @@ public class Ocorrencia {
 
 	public void atualizarResponsavel(int idNovoFuncionario) throws Exception {
 		if(idNovoFuncionario < 0) {
-			throw (new Exception ("Id Inválido"));
+			throw (new Exception ("Id Invalido"));
 		}
 		idFuncionarioResponsavel = idNovoFuncionario;
 	}

@@ -5,9 +5,9 @@ import java.util.HashMap;
 import corp.Ocorrencia.PrioridadeDeOcorrencia;
 import corp.Ocorrencia.TipoDeOcorrencia;
 
-public class Empresa {
-
-	HashMap<Integer, Projeto> projetos;
+public class Empresa { //Atributos em private
+	//
+	HashMap<Integer, Projeto> projetos; //HashMap sempre a melhor opcao: desempenho O(1) + simplicidade de codigo.
 	HashMap<Integer, Funcionario> funcionarios;
 
 	public Empresa() {
@@ -43,8 +43,8 @@ public class Empresa {
 		return projetos.size();
 	}
 
-	public Ocorrencia criarOcorrencia(int idProjeto, int idFuncionario, TipoDeOcorrencia tipo,
-			PrioridadeDeOcorrencia prioridade, String resumo) throws Exception {
+	public Ocorrencia criarOcorrencia(int idProjeto, int idFuncionario, TipoDeOcorrencia tipo, 
+			PrioridadeDeOcorrencia prioridade, String resumo) throws Exception { //Evite usar null, aqui nao eh C++, se voce nao confia na criacao do objeto realize mais testes
 		Projeto projeto = obterProjeto(idProjeto);
 		if (projeto == null) {
 			throw (new Exception("Projeto Inexistente"));
@@ -60,7 +60,7 @@ public class Empresa {
 		return projeto.criarOcorrencia(idFuncionario, tipo, prioridade, resumo);
 	}
 
-	public void fecharOcorrencia(int idProjeto, int idFuncionario, int idOcorrencia) throws Exception {
+	public void fecharOcorrencia(int idProjeto, int idFuncionario, int idOcorrencia) throws Exception { //Evite usar null, aqui nao eh C++, se voce nao confia na criacao do objeto realize mais testes
 		Projeto projeto = obterProjeto(idProjeto);
 		if (projeto == null) {
 			throw (new Exception("Projeto Inexistente"));

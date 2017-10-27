@@ -1,10 +1,10 @@
 package corp;
 
-public class Funcionario {
+public class Funcionario { //Atributos em private, utilize getters para pegar seus valores.
 
 	String nome;
-	int ocorrenciasSobResponsabilidade;
-	
+	int ocorrenciasSobResponsabilidade; //Imagine um programador escrevendo o nome dessa variavel por uma centena de vezes... Alem do que a ocorrencia pertencer ao funcionario.
+
 	public Funcionario(String nomeFuncionario) {
 		nome = nomeFuncionario;
 	}
@@ -17,7 +17,7 @@ public class Funcionario {
 		return (ocorrenciasSobResponsabilidade >= 10);
 	}
 
-	public void abrirOcorrencia() {
+	public void abrirOcorrencia() { //adicionarOcorrencia seria mais adequado.
 		ocorrenciasSobResponsabilidade++;
 	}
 

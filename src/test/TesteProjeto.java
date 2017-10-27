@@ -17,14 +17,16 @@ public class TesteProjeto {
 	private int idFuncionario;
 
 	@Before
-	public void before() {
+	public void before() { // Poderia ter mais coisas aqui, além do mais coloque nomes melhores no nome do funcionario e projeto, coloque um nome generico no funcionario como BOB ou ALICE.
 		empresa = new Empresa();
 		idProjeto = empresa.adicionarProjeto("DAJOB");
 		idFuncionario = empresa.adicionarFuncionario("Mr.Slave");
 	}
+	
+	//Crie um metodo de configuracao para criacao da(s) ocorrencia(s)
 
 	@Test
-	public void criarOcorrencia() throws Exception {
+	public void criarOcorrencia() throws Exception { // Teste deveras longo: é difícil entender o que o teste faz e que ocorrência é essa ?
 		int quantidadeEsperadaDeOcorrencias = 1;
 		int quantidadeDeOcorrencias;
 		EstadoDeOcorrencia estadoEsperado = EstadoDeOcorrencia.ABERTO, estadoCriado;
@@ -46,7 +48,7 @@ public class TesteProjeto {
 	}
 
 	@Test
-	public void criar10OcorrenciasComMesmoFuncionarioResponsavel() throws Exception {
+	public void criar10OcorrenciasComMesmoFuncionarioResponsavel() throws Exception { // Vi apenas 10 ocorrencias...
 		int quantidadeDeOcorrenciasEsperadas = 10, quantidadeDeOcorrenciasTotais;
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.BUG;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA;
@@ -59,7 +61,7 @@ public class TesteProjeto {
 	}
 
 	@Test(expected = Exception.class)
-	public void criar11OcorrenciasComMesmoFuncionarioResponsavel() throws Exception {
+	public void criar11OcorrenciasComMesmoFuncionarioResponsavel() throws Exception { //Vi apenas 12 ocorrencias e nao 110...
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.BUG;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA;
 		String resumo = "Loop Breaker";
@@ -87,11 +89,11 @@ public class TesteProjeto {
 	}
 
 	@Test
-	public void trocarResponsavelPorOcorrencia() throws Exception {
+	public void trocarResponsavelPorOcorrencia() throws Exception { // Poderia ter colocado nomes reais de pessoas, para facilitar a compreensao
 		String nomeNovoFuncionario = "Mr.Worker";
 		int idNovoFuncionario, idFuncionarioResponsavel;
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.MELHORIA;
-		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA;
+		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA; 
 		String resumo = "MA";
 		idNovoFuncionario = empresa.adicionarFuncionario(nomeNovoFuncionario);
 		Ocorrencia ocorrencia = empresa.criarOcorrencia(idProjeto, idFuncionario, tipo, prioridade, resumo);
@@ -101,7 +103,7 @@ public class TesteProjeto {
 	}
 
 	@Test(expected = Exception.class)
-	public void trocarResponsavelPorOcorrenciaPorIdInexistente() throws Exception {
+	public void trocarResponsavelPorOcorrenciaPorIdInexistente() throws Exception { // se a ocorrencia tem id inexistente, por que é preciso criar ela ?
 		int idFuncionarioInexistente = -1;
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.MELHORIA;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA;
@@ -111,7 +113,7 @@ public class TesteProjeto {
 	}
 
 	@Test
-	public void trocarPrioridadeDeOcorrencia() throws Exception {
+	public void trocarPrioridadeDeOcorrencia() throws Exception { //Exatamente isso, coloque direitinho o nove das variaveis.
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.BUG;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.ALTA;
 		String resumo = "BA";
@@ -123,7 +125,7 @@ public class TesteProjeto {
 	}
 
 	@Test
-	public void fecharOcorrencia() throws Exception {
+	public void fecharOcorrencia() throws Exception { //Nao entendi a relção de fechar uma ocorrência com comparar as ocorrencias abertas ?
 		int idOcorrenciaB, quantidadeEsperadaDeOcorrenciasAbertas = 1, quantidadeDeOcorrenciasAbertas;
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.BUG;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.BAIXA;
@@ -156,7 +158,7 @@ public class TesteProjeto {
 	}
 	
 	@Test(expected = Exception.class)
-	public void fecharOcorrenciaDeResponsavelInexistente() throws Exception {
+	public void fecharOcorrenciaDeResponsavelInexistente() throws Exception { //Teste bem especificado
 		int idFuncionarioInexistente = -1, idOcorrencia;
 		TipoDeOcorrencia tipo = TipoDeOcorrencia.BUG;
 		PrioridadeDeOcorrencia prioridade = PrioridadeDeOcorrencia.MEDIA;
